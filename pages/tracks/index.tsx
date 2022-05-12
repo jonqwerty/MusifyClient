@@ -16,7 +16,7 @@ const Index = () => {
       text: "text 1",
       listens: 4,
       audio: "http://localhost:5000/audio/9ab48df5-60cf-4522-b649-931d25df1602.mp3",
-      picture: "659042c2-e3aa-4c47-b49a-94796ceee500.jpeg",
+      picture: "http://localhost:5000/image/659042c2-e3aa-4c47-b49a-94796ceee500.jpeg",
       comments: [],
     },
     {
@@ -26,7 +26,7 @@ const Index = () => {
       text: "text 2",
       listens: 4,
       audio: "http://localhost:5000/audio/9ab48df5-60cf-4522-b649-931d25df1602.mp3",
-      picture: "659042c2-e3aa-4c47-b49a-94796ceee500.jpeg",
+      picture: "http://localhost:5000/image/659042c2-e3aa-4c47-b49a-94796ceee500.jpeg",
       comments: [],
     },
   ]
