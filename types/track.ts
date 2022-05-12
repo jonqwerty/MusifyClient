@@ -1,6 +1,6 @@
 export interface IComment {
   _id: string
-  esername: string
+  username: string
   text: string
 }
 
