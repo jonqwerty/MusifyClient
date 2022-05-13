@@ -32,7 +32,7 @@ const Create = () => {
           </FileUpload>}
         {activeStep === 2 && <FileUpload setFile={setAudio} accept='audio/*' >
 <Button>Завантажити аудіо</Button>
-          </FileUpload>}}
+          </FileUpload>}
       </StepWrapper>
       <Grid container justifyContent="space-between">
         <Button disabled={activeStep === 0} onClick={back}>
