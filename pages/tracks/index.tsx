@@ -3,33 +3,25 @@ import { Box } from "@mui/system"
 import { useRouter } from "next/router"
 import React from "react"
 import TrackList from "../../components/TrackList"
+import { useActions } from "../../hooks/useActions"
+import { useTypedSelector } from "../../hooks/useTypedSelector"
 import MainLayout from "../../layouts/MainLayout"
+import { NextThunkDispatch, wrapper } from "../../store"
+import { fetchTracks } from "../../store/actions-creators/track"
 import { ITrack } from "../../types/track"
 
 const Index = () => {
   const router = useRouter()
-  const tracks: ITrack[] = [
-    {
-      _id: "1",
-      name: "track 1",
-      artist: "artist 1",
-      text: "text 1",
-      listens: 4,
-      audio: "http://localhost:5000/audio/9ab48df5-60cf-4522-b649-931d25df1602.mp3",
-      picture: "http://localhost:5000/image/659042c2-e3aa-4c47-b49a-94796ceee500.jpeg",
-      comments: [],
-    },
-    {
-      _id: "2",
-      name: "track 2",
-      artist: "artist 2",
-      text: "text 2",
-      listens: 4,
-      audio: "http://localhost:5000/audio/9ab48df5-60cf-4522-b649-931d25df1602.mp3",
-      picture: "http://localhost:5000/image/659042c2-e3aa-4c47-b49a-94796ceee500.jpeg",
-      comments: [],
-    },
-  ]
+  const { tracks, error } = useTypedSelector((state) => state.track)
+
+  if (error) {
+    return (
+      <MainLayout>
+        <h1>{error}</h1>
+      </MainLayout>
+    )
+  }
+
   return (
     <MainLayout>
       <Grid container justifyContent="center">
@@ -48,3 +40,10 @@ const Index = () => {
 }
 
 export default Index
+
+export const getServerSideProps = wrapper.getServerSideProps(
+  (store) => 
+  async ({ req, res }) => {
+  const dispatch = store.dispatch as NextThunkDispatch
+  await dispatch(await fetchTracks())
+})
