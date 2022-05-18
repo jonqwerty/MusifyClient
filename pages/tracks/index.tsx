@@ -23,7 +23,7 @@ const Index = () => {
   }
 
   return (
-    <MainLayout>
+    <MainLayout  title={"Список треків"}>
       <Grid container justifyContent="center">
         <Card style={{ width: 900 }}>
           <Box p={3}>

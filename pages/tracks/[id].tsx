@@ -22,14 +22,16 @@ const TrackPage = ({ serverTrack }) => {
         text: text.value,
         trackId: track._id,
       })
-      setrTrack({...track, comments: [...track.comments, response.data]})
+      setrTrack({ ...track, comments: [...track.comments, response.data] })
     } catch (e) {
       console.log(e)
     }
   }
 
   return (
-    <MainLayout>
+    <MainLayout title={"Музична платформа - " + track.name + "-" + track.artist}
+    keywords={'music, supermusic,' + track.name + "," + track.artist}
+    >
       <Button variant={"outlined"} style={{ fontSize: 32 }} onClick={() => router.push("/tracks")}>
         Повернутися до списку
       </Button>
@@ -47,7 +49,7 @@ const TrackPage = ({ serverTrack }) => {
       <Grid>
         <TextField label="Ваше ім'я" fullWidth {...username} />
         <TextField label="Коментар" fullWidth multiline rows={4} {...text} />
-        <Button onClick={addCommentЁ}>Відправити</Button>
+        <Button onClick={addComment}>Відправити</Button>
       </Grid>
       <div>
         {track.comments.map((comment) => (
