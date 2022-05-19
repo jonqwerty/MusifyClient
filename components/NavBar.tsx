@@ -88,7 +88,7 @@ export default function NavBar() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Persistent drawer
+            Musify platform
           </Typography>
         </Toolbar>
       </AppBar>
